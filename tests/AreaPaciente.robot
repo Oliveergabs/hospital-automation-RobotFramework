@@ -7,7 +7,7 @@
 ###################################################################################################
 
 *** Settings ***
-Resource                         ../src/global/SharedKW.robot
+Resource                         ../src/global/sharedkw.robot
 
 
 Test Setup                       Abrir aplicação
