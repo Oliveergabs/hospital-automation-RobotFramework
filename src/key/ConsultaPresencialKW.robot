@@ -8,7 +8,7 @@
 
 *** Settings ***
 Documentation                    URL DA DOCUMENTACAO DO WB
-Resource                         ../global/SharedKW.robot
+Resource                         ../global/sharedkw.robot
 
 *** Keywords ***
 E realizar um agendamento de consulta presencial

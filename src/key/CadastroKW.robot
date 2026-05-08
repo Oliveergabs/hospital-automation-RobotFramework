@@ -8,7 +8,7 @@
 
 *** Settings ***
 Documentation                    URL DA DOCUMENTACAO DO WB
-Resource                         ../global/SharedKW.robot
+Resource                         ../global/sharedkw.robot
 
 *** Keywords ***
 Dado que estou na tela de cadastro de paciente
