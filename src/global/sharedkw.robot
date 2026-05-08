@@ -69,7 +69,7 @@ Remover benchmarks
     END
     
 Abrir aplicação
-    Open Browser    ${URL}    headless${BROWSER}
+    Open Browser    ${URL}    ${BROWSER}
     Maximize Browser Window
     # Iniciar gravação
     
@@ -172,15 +172,16 @@ Alterar senha
 Gerar data da consulta
     [Arguments]    ${dias}=7
 
-    ${data_input}=    Get Current Date
+    ${data_obj}=    Get Current Date
     ...    increment=${dias} days
-    ...    result_format=%Y-%m-%d
-    ...    time_zone=UTC
+
+    ${data_input}=    Convert Date
+    ...    ${data_obj}
+    ...    result_format=%d/%m/%Y
 
     ${data_listagem}=    Convert Date
-    ...    ${data_input}
+    ...    ${data_obj}
     ...    result_format=%Y-%m-%d
-    ...    date_format=%Y-%m-%d
 
     ${datas}=    Create Dictionary
     ...    formulario=${data_input}
