@@ -294,7 +294,7 @@ Validar consulta agendada
     ...    timeout=10
 
     ${xpath}=    Set Variable
-    ...    //div[@id='listaConsultas']//*[contains(., '${especialidade}') and contains(., '${medico}') and contains(., '${data}') and contains(., '${horario}')]
+    ...    (//div[@id='listaConsultas']//*[contains(., '${especialidade}') and contains(., '${medico}') and contains(., '${data}') and contains(., '${horario}')])[1]
 
     Element Should Be Visible
     ...    xpath=${xpath}
