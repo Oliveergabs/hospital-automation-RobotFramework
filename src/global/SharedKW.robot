@@ -23,18 +23,18 @@ Library                 ../utils/cpf_utils.py
 
 
 ### KEYWORDS ###
-Resource                ../key/LoginKW.robot
-Resource                ../key/CadastroKW.robot
-Resource                ../key/AreaPacienteKW.robot
-Resource                ../key/TelemedicinaKW.robot
-Resource                ../key/ConsultaPresencialKW.robot
+Resource                ../key/loginkw.robot
+Resource                ../key/cadastrokw.robot
+Resource                ../key/area_pacientekw.robot
+Resource                ../key/telemedicinakw.robot
+Resource                ../key/consultapresencialkw.robot
 
 
 ### VARIAVEIS ###
-Resource                ../data/Variables.robot
+Resource                ../data/variables.robot
 
 ## LOCATORS ##
-Resource                ../mappings/Locators.robot
+Resource                ../mappings/locators.robot
 
 
 *** Keywords ***
