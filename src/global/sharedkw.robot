@@ -69,7 +69,7 @@ Remover benchmarks
     END
     
 Abrir aplicação
-    Open Browser    ${URL}    ${BROWSER}
+    Open Browser    ${URL}    headless${BROWSER}
     Maximize Browser Window
     Iniciar gravação
     
