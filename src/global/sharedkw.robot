@@ -241,13 +241,14 @@ Realizar agendamento
     IF    '${medico}' != '${EMPTY}'
         Selecionar médico
         ...    ${tipo}
-        ...    ${medico}
+        ...    ${medico}  
     END
 
     IF    '${data}' == 'AUTO'
         Input Text
         ...    ${INPUT_DATA}
         ...    ${datas.formulario}
+        ...    timeout=10
     END
 
     IF    '${data}' != 'AUTO' and '${data}' != '${EMPTY}'
@@ -274,12 +275,26 @@ Realizar agendamento
     RETURN    ${datas}
 
 Validar consulta agendada
-    [Arguments]    ${especialidade}    ${medico}    ${data}    ${horario}
-    
+    [Arguments]
+    ...    ${especialidade}
+    ...    ${medico}
+    ...    ${data}
+    ...    ${horario}
 
-    Wait Until Element Is Visible    xpath=//div[@id='listaConsultas']    timeout=10
+    Wait Until Element Is Visible
+    ...    xpath=//div[@id='listaConsultas']
+    ...    timeout=10
+
+    Wait Until Page Contains
+    ...    ${medico}
+    ...    timeout=10
+
+    Wait Until Page Contains
+    ...    ${horario}
+    ...    timeout=10
 
     ${xpath}=    Set Variable
     ...    //div[@id='listaConsultas']//*[contains(., '${especialidade}') and contains(., '${medico}') and contains(., '${data}') and contains(., '${horario}')]
 
-    Element Should Be Visible    xpath=${xpath}
+    Element Should Be Visible
+    ...    xpath=${xpath}
