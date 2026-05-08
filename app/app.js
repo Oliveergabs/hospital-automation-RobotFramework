@@ -585,6 +585,7 @@ function atualizarHorarios() {
   // converte input (yyyy-mm-dd)
   const [ano, mes, dia] = dataSelecionadaStr.split("-");
   const dataSelecionada = new Date(ano, mes - 1, dia);
+  
 
   const botoes = document.querySelectorAll(".horarios button");
 
