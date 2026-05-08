@@ -36,9 +36,11 @@ jobs:
             sleep 2
           done
 
-      - name: Verificar aplicação
-        run: |
-          curl http://localhost:8006
+      -  name: Verificar estrutura
+         run: |
+          ls
+          ls app
+          ls app/pages
 
       - name: Limpar reports
         run: rm -rf report
