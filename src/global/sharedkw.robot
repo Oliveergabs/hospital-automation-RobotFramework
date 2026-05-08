@@ -174,12 +174,12 @@ Gerar data da consulta
 
     ${data_input}=    Get Current Date
     ...    increment=${dias} days
-    ...    result_format=%Y-%m-%d
+    ...    result_format=%d/%m/%Y
 
     ${data_listagem}=    Convert Date
     ...    ${data_input}
     ...    result_format=%Y-%m-%d
-    ...    date_format=%Y-%m-%d
+    ...    date_format=%d/%m/%Y
 
     ${datas}=    Create Dictionary
     ...    formulario=${data_input}
