@@ -228,7 +228,7 @@ Realizar agendamento
     ...    ${medico}=${EMPTY}
     ...    ${data}=AUTO
     ...    ${horario}=${EMPTY}
-    ...    ${dias}=5
+    ...    ${dias}=4
     
 
     ${datas}=    Gerar data da consulta    ${dias}
