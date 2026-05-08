@@ -71,11 +71,11 @@ Remover benchmarks
 Abrir aplicação
     Open Browser    ${URL}    headless${BROWSER}
     Maximize Browser Window
-    Iniciar gravação
+    # Iniciar gravação
     
 
 Fechar aplicação
-    Stop Video Recording  
+    # Stop Video Recording  
     Remover benchmarks  
     Close Browser
     
