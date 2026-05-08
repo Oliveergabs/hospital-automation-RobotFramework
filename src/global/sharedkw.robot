@@ -174,7 +174,7 @@ Gerar data da consulta
 
     ${data_input}=    Get Current Date
     ...    increment=${dias} days
-    ...    result_format=%d/%m/%Y
+    ...    result_format=%Y-%m-%d
 
     ${data_listagem}=    Convert Date
     ...    ${data_input}
@@ -248,7 +248,6 @@ Realizar agendamento
         Input Text
         ...    ${INPUT_DATA}
         ...    ${datas.formulario}
-        ...    timeout=10
     END
 
     IF    '${data}' != 'AUTO' and '${data}' != '${EMPTY}'
