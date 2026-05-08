@@ -69,13 +69,13 @@ Remover benchmarks
     END
     
 Abrir aplicação
-    Open Browser    ${URL}    headless${BROWSER}
+    Open Browser    ${URL}    ${BROWSER}
     Maximize Browser Window
-    # Iniciar gravação
+    Iniciar gravação
     
 
 Fechar aplicação
-    # Stop Video Recording  
+    Stop Video Recording  
     Remover benchmarks  
     Close Browser
     
@@ -172,16 +172,14 @@ Alterar senha
 Gerar data da consulta
     [Arguments]    ${dias}=7
 
-    ${data_obj}=    Get Current Date
+    ${data_input}=    Get Current Date
     ...    increment=${dias} days
-
-    ${data_input}=    Convert Date
-    ...    ${data_obj}
     ...    result_format=%d/%m/%Y
 
     ${data_listagem}=    Convert Date
-    ...    ${data_obj}
+    ...    ${data_input}
     ...    result_format=%Y-%m-%d
+    ...    date_format=%d/%m/%Y
 
     ${datas}=    Create Dictionary
     ...    formulario=${data_input}
@@ -228,7 +226,7 @@ Realizar agendamento
     ...    ${medico}=${EMPTY}
     ...    ${data}=AUTO
     ...    ${horario}=${EMPTY}
-    ...    ${dias}=4
+    ...    ${dias}=7
     
 
     ${datas}=    Gerar data da consulta    ${dias}

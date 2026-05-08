@@ -13,6 +13,12 @@ jobs:
       - name: Checkout código
         uses: actions/checkout@v4
 
+      - name: Instalar Chrome
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Verificar Chrome
+        run: google-chrome --version
+
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
