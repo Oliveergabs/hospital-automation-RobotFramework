@@ -25,7 +25,8 @@ jobs:
 
       - name: Subir aplicação
         run: |
-          cd app python -m http.server 8006 &
+          cd app
+          python -m http.server 8006 &
 
       - name: Esperar aplicação subir
         run: |
@@ -34,6 +35,10 @@ jobs:
             echo "Aguardando servidor..."
             sleep 2
           done
+
+      - name: Verificar aplicação
+        run: |
+          curl http://localhost:8006
 
       - name: Limpar reports
         run: rm -rf report
