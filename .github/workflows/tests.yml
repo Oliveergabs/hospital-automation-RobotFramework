@@ -2,7 +2,7 @@ name: Testes Automatizados
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
 
 jobs:
@@ -31,25 +31,31 @@ jobs:
 
       - name: Subir aplicação
         run: |
-          cd app
-          python -m http.server 8006 &
+          Start-Process powershell -ArgumentList "cd app; python -m http.server 8006"
 
       - name: Esperar aplicação subir
         run: |
-          for i in {1..10}; do
-            curl -s http://localhost:8006/ && break
-            echo "Aguardando servidor..."
-            sleep 2
-          done
+          for ($i=1; $i -le 10; $i++) {
+            try {
+              Invoke-WebRequest http://localhost:8006 -UseBasicParsing
+              break
+            } catch {
+              Write-Host "Aguardando servidor..."
+              Start-Sleep -Seconds 2
+            }
+          }
 
-      -  name: Verificar estrutura
-         run: |
-          ls
-          ls app
-          ls app/pages
+      - name: Verificar estrutura
+        run: |
+          dir
+          dir app
+          dir app/pages
 
       - name: Limpar reports
-        run: rm -rf report
+        run: |
+          if (Test-Path report) {
+            Remove-Item report -Recurse -Force
+          }
 
       - name: Rodar testes
         run: |
@@ -60,5 +66,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: relatorio-testes
-          path: |
-            report/
+          path: report/
