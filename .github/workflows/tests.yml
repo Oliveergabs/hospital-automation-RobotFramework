@@ -16,7 +16,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: "3.12"
 
       - name: Instalar dependências
         run: |
@@ -25,7 +25,7 @@ jobs:
 
       - name: Subir aplicação
         run: |
-          cd app && python -m http.server 8006
+          cd app python -m http.server 8006 &
 
       - name: Esperar aplicação subir
         run: |
@@ -36,7 +36,7 @@ jobs:
           done
 
       - name: Limpar reports
-        run: rm -rf reports
+        run: rm -rf report
 
       - name: Rodar testes
         run: |
@@ -48,6 +48,4 @@ jobs:
         with:
           name: relatorio-testes
           path: |
-            reports/
-            test-results/
-            Robot-report/
+            report/
