@@ -47,7 +47,7 @@ jobs:
 
       - name: Rodar testes
         run: |
-          robot -d report -v CI:True -i regressivo tests/
+          robot -d report -i regressivo tests/
 
       - name: Upload relatório
         if: always()

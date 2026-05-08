@@ -175,8 +175,8 @@ Gerar data da consulta
     ${data_input}=    Get Current Date
     ...    increment=${dias} days
     ...    result_format=%d/%m/%Y
-    ...    time_zone=America/Sao_Paulo
-    
+    ...    time_zone=UTC
+
     ${data_listagem}=    Convert Date
     ...    ${data_input}
     ...    result_format=%Y-%m-%d
