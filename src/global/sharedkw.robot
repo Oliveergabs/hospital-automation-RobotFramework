@@ -248,12 +248,16 @@ Realizar agendamento
         Input Text
         ...    ${INPUT_DATA}
         ...    ${datas.formulario}
+
+        Log To Console    DATA NO INPUT: ${datas.formulario}
     END
 
     IF    '${data}' != 'AUTO' and '${data}' != '${EMPTY}'
         Input Text
         ...    ${INPUT_DATA}
         ...    ${data}
+
+        Log To Console    DATA NO INPUT: ${data}
     END
 
     IF    '${horario}' != '${EMPTY}'
@@ -293,7 +297,7 @@ Validar consulta agendada
     ...    timeout=10
 
     ${xpath}=    Set Variable
-    ...    (//div[@id='listaConsultas']//*[contains(., '${especialidade}') and contains(., '${medico}') and contains(., '${data}') and contains(., '${horario}')])[2]
+    ...    //div[@class='consulta-item']//*[contains(., '${especialidade}') and contains(., '${medico}') and contains(., '${data}') and contains(., '${horario}')]
 
     Element Should Be Visible
     ...    xpath=${xpath}
