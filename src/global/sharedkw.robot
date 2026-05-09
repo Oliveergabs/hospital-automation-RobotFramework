@@ -69,7 +69,23 @@ Remover benchmarks
     END
     
 Abrir aplicação
-    Open Browser    ${URL}    headless${BROWSER}
+    ${options}=    
+    ...    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()
+    ...    sys, selenium.webdriver
+
+    Call Method    ${options}    add_argument    --window-size=1920,1080
+
+    Call Method    ${options}    add_argument    --lang=pt-BR
+
+    Call Method    ${options}    add_argument    --disable-blink-features=AutomationControlled
+
+    # REMOVA HEADLESS TEMPORARIAMENTE
+    # Call Method    ${options}    add_argument    --headless=new
+
+    Create Webdriver    Chrome    options=${options}
+
+    Go To    ${URL}
+
     Maximize Browser Window
     # Iniciar gravação
     
