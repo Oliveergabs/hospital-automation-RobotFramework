@@ -245,17 +245,25 @@ Realizar agendamento
     END
 
     IF    '${data}' == 'AUTO'
+        Clear Element Text    ${INPUT_DATA}
+
         Input Text
         ...    ${INPUT_DATA}
         ...    ${datas.formulario}
+
+        Press Keys    ${INPUT_DATA}    TAB
 
         Log To Console    DATA NO INPUT: ${datas.formulario}
     END
 
     IF    '${data}' != 'AUTO' and '${data}' != '${EMPTY}'
+        Clear Element Text    ${INPUT_DATA}
+
         Input Text
         ...    ${INPUT_DATA}
         ...    ${data}
+
+        Press Keys    ${INPUT_DATA}    TAB
 
         Log To Console    DATA NO INPUT: ${data}
     END
