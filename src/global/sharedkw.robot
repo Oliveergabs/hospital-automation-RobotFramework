@@ -73,14 +73,14 @@ Abrir aplicação
     ...    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()
     ...    sys, selenium.webdriver
 
-    Call Method    ${options}    add_argument    --window-size=1920,1080
+    ${window}=    Set Variable    --window-size\=1920,1080
+    Call Method    ${options}    add_argument    ${window}
 
-    Call Method    ${options}    add_argument    --lang=pt-BR
+    ${lang}=    Set Variable    --lang\=pt-BR
+    Call Method    ${options}    add_argument    ${lang}
 
-    Call Method    ${options}    add_argument    --disable-blink-features=AutomationControlled
-
-    # REMOVA HEADLESS TEMPORARIAMENTE
-    # Call Method    ${options}    add_argument    --headless=new
+    ${blink}=    Set Variable    --disable-blink-features\=AutomationControlled
+    Call Method    ${options}    add_argument    ${blink}
 
     Create Webdriver    Chrome    options=${options}
 
@@ -268,6 +268,8 @@ Realizar agendamento
         ...    ${INPUT_DATA}
         ...    ${datas.formulario}
 
+        Sleep    3
+
         Log To Console    DATA NO INPUT: ${datas.formulario}
     END
 
@@ -277,6 +279,8 @@ Realizar agendamento
         Input Text
         ...    ${INPUT_DATA}
         ...    ${data}
+
+        Sleep    3
 
         Log To Console    DATA NO INPUT: ${data}
     END
