@@ -245,13 +245,12 @@ Realizar agendamento
     END
 
     IF    '${data}' == 'AUTO'
+
         Clear Element Text    ${INPUT_DATA}
 
         Input Text
         ...    ${INPUT_DATA}
         ...    ${datas.formulario}
-
-        Press Keys    ${INPUT_DATA}    TAB
 
         Log To Console    DATA NO INPUT: ${datas.formulario}
     END
@@ -262,8 +261,6 @@ Realizar agendamento
         Input Text
         ...    ${INPUT_DATA}
         ...    ${data}
-
-        Press Keys    ${INPUT_DATA}    TAB
 
         Log To Console    DATA NO INPUT: ${data}
     END
@@ -282,6 +279,9 @@ Realizar agendamento
         ...    ${BUTTON_AGENDAR_CONSULTA}
 
     END
+
+    ${valor_depois}=    Get Value    ${INPUT_DATA}
+    Log To Console    DATA APOS SALVAR: ${valor_depois}
 
     RETURN    ${datas}
 
